@@ -1,6 +1,8 @@
 package movilapp2.kevinintriago.facci.primeraapp4toc;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,10 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,FragUno.OnFragmentInteractionListener, FragDos.OnFragmentInteractionListener {
 
-    Button buttonLogin, buttonGuardar, buttonBuscar, buttonParametro;
-    Button botonFragUno, botonFragDos;
+    Button buttonLogin, buttonGuardar, buttonBuscar, buttonParametro, botonFragUno, botonFragDos;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -53,6 +54,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonFragUno.setOnClickListener(this);
         botonFragDos.setOnClickListener(this);
 
+        botonFragDos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this,FragDos.class);
+                    startActivity(intent);
+
+            }
+        });
+
         buttonParametro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +99,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnFrgUno:
+                FragUno fragmentUno = new FragUno();
+                FragmentTransaction transactionUno = getSupportFragmentManager().beginTransaction();
+                transactionUno.replace(R.id.contenedor,fragmentUno);
+                transactionUno.commit();
+                break;
+            case R.id.btnFrgDos:
+                FragDos fragmentoDos = new FragDos();
+                FragmentTransaction transactionDos = getSupportFragmentManager().beginTransaction();
+                transactionDos.replace(R.id.contenedor,fragmentoDos);
+                transactionDos.commit();
+                break;
+        }
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

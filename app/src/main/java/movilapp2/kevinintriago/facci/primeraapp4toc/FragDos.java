@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -23,14 +25,22 @@ public class FragDos extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
+
+
+
+
     private OnFragmentInteractionListener mListener;
+
 
     public FragDos() {
         // Required empty public constructor
+
     }
 
     /**
@@ -51,6 +61,8 @@ public class FragDos extends Fragment {
         return fragment;
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +75,21 @@ public class FragDos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_dos, container, false);
+        View vista = inflater.inflate(R.layout.fragment_frag_dos, container, false);
+
+        Button botonfragdos = (Button) vista.findViewById(R.id.btnMensaje);
+        botonfragdos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"en el frag dos", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -89,6 +114,7 @@ public class FragDos extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
     /**

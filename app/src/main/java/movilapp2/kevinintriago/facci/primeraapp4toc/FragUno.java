@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -63,8 +65,20 @@ public class FragUno extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Button botonfraguno;
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_uno, container, false);
+        View vista = inflater.inflate(R.layout.fragment_frag_uno, container, false);
+
+        botonfraguno = (Button) vista.findViewById(R.id.btnEnviarfraguno);
+        botonfraguno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"enviado correctamente", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        return vista;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
