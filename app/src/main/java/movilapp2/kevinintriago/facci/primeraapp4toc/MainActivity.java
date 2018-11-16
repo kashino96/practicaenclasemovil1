@@ -3,12 +3,39 @@ package movilapp2.kevinintriago.facci.primeraapp4toc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonLogin, buttonGuardar, buttonBuscar;
+    Button buttonLogin, buttonGuardar, buttonBuscar, buttonParametro;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.opcionLogin:
+                intent = new Intent(MainActivity.this, ActividadLogin.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionRegistrar:
+                intent = new Intent(MainActivity.this, ActividadRegistrar.class);
+                startActivity(intent);
+                break;
+
+        }
+        return true;
+    }
 
 
     @Override
@@ -19,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonGuardar = (Button) findViewById(R.id.buttonGuardar);
         buttonBuscar = (Button) findViewById(R.id.buttonBuscar);
+        buttonParametro = (Button) findViewById(R.id.buttonPasarParametro);
+
+        buttonParametro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ActividadPasarParametro.class);
+                startActivity(intent);
+            }
+        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
