@@ -9,9 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button buttonLogin, buttonGuardar, buttonBuscar, buttonParametro;
+    Button botonFragUno, botonFragDos;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         buttonGuardar = (Button) findViewById(R.id.buttonGuardar);
         buttonBuscar = (Button) findViewById(R.id.buttonBuscar);
         buttonParametro = (Button) findViewById(R.id.buttonPasarParametro);
+        botonFragUno = (Button)findViewById(R.id.btnFrgUno);
+        botonFragDos = (Button)findViewById(R.id.btnFrgDos);
+        botonFragUno.setOnClickListener(this);
+        botonFragDos.setOnClickListener(this);
 
         buttonParametro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
