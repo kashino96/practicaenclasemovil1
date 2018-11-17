@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Ingrese la Cedula"
+        android:hint="Ingrese la Cedula"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="79dp" />
 

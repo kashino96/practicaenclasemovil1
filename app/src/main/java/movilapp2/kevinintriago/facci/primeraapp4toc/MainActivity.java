@@ -1,5 +1,6 @@
 package movilapp2.kevinintriago.facci.primeraapp4toc;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,FragUno.OnFragmentInteractionListener, FragDos.OnFragmentInteractionListener {
 
@@ -36,7 +39,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+        switch (item.getItemId()){
+            case R.id.opcionLogin:
+                Dialog dialogoLogin = new Dialog(MainActivity.this);
+                dialogoLogin.setContentView(R.layout.dlg_login);
+
+                Button botonAutenticar = (Button)dialogoLogin.findViewById(R.id.btnAutenticar);
+                final EditText cajaUsuario = (EditText) dialogoLogin.findViewById(R.id.txtUser);
+                final EditText cajaClave = (EditText) dialogoLogin.findViewById(R.id.txtPassword);
+
+                botonAutenticar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        
+                    }
+                });
+
+
+                dialogoLogin.show();
+                break;
+            case R.id.opcionRegistrar:
+                break;
+        }
+
         return true;
+
     }
 
 

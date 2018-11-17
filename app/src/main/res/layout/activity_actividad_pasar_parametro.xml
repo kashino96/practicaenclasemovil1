@@ -16,7 +16,7 @@
         android:layout_marginTop="47dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Ingrese un dato" />
+        android:hint="Ingrese un dato" />
 
     <Button
         android:id="@+id/btnEnviarParametro"
